@@ -33,8 +33,8 @@ else:
         except Exception as error:
             st.error(f"No fue posible leer el archivo: {error}")
             st.stop()
-        st.subheader("Vista previa de los datos")
-        st.dataframe(datos.head(), use_container_width = True)
-        st.subheader("Dimensiones del dataset")
-        st.write(f"**Filas:** {datos.shape[0]}")
-        st.write(f"**Columnas:** {datos.shape[1]}")
+    st.subheader("Vista previa de los datos")
+    st.dataframe(datos.head(), use_container_width = True)
+    st.subheader("Dimensiones del dataset")
+    st.write(f"**Filas:** {datos.shape[0]}")
+    st.write(f"**Columnas:** {datos.shape[1]}")
