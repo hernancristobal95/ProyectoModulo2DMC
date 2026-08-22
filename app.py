@@ -27,12 +27,12 @@ else:
     if archivo is None:
         st.info("Cargue un archivo csv para visualizar los datos")
         st.stop()
-        try:
-            datos = pd.read_csv(archivo)
-            st.success("Su archivo ha sido cargado correctamente")
-        except Exception as error:
-            st.error(f"No fue posible leer el archivo: {error}")
-            st.stop()
+    try:
+        datos = pd.read_csv(archivo)
+        st.success("Su archivo ha sido cargado correctamente")
+    except Exception as error:
+        st.error(f"No fue posible leer el archivo: {error}")
+        st.stop()
     st.subheader("Vista previa de los datos")
     st.dataframe(datos.head(), use_container_width = True)
     st.subheader("Dimensiones del dataset")
