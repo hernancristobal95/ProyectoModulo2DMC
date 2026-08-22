@@ -78,19 +78,11 @@ elif modulo == "Módulo 3":
     st.header("Item 2: Clasificación de variables")
     col1, col2 = st.columns(2)
     with col1:
-        st.subheader("🔢 Variables numéricas")
-        st.metric(
-            "Cantidad",
-            len(variables_numericas)
-        )
+        st.write("Variables numéricas =", len(variables_numericas))
         for variable in variables_numericas:
             st.write(f"• {variable}")
     with col2:
-        st.subheader("🔤 Variables categóricas")
-        st.metric(
-            "Cantidad",
-            len(variables_categoricas)
-        )
+        st.write("Variables categóricas =", len(variables_categoricas))
         for variable in variables_categoricas:
             st.write(f"• {variable}")
     st.divider()
