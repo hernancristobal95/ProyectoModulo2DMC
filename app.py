@@ -80,7 +80,7 @@ elif modulo == "Módulo 3":
     with col1:
         st.write("Variables numéricas =", len(variables_numericas))
         for variable in variables_numericas:
-            st.write(f"• {variable}")
+            st.write({variable})
     with col2:
         st.write("Variables categóricas =", len(variables_categoricas))
         for variable in variables_categoricas:
