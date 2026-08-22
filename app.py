@@ -68,34 +68,31 @@ elif modulo == "Módulo 3":
     analisis = DataAnalyzer(datos)
     variables_numericas, variables_categoricas = (analisis.clasificar_variables())
     
-    #Item 1: Información general del dataset
+    #Item 1
     st.header("Item 1: Información general del dataset")
-    st.metric("Filas:", datos.shape[0])
-    st.metric("Columnas", datos.shape[1])
-    st.subheader("Tipos de datos")
-
-    tipos_datos = pd.DataFrame({
-        "Variable": datos.columns,
-        "Tipo de dato": datos.dtypes.astype(str)
-    })
-
-    st.dataframe(
-        tipos_datos,
-        use_container_width=True
-    )
-
-    st.subheader("Información del dataset")
-
-    info_dataset = pd.DataFrame({
-        "Variable": datos.columns,
-        "Tipo": datos.dtypes.astype(str),
-        "Valores no nulos": datos.notnull().sum().values,
-        "Valores nulos": datos.isnull().sum().values
-    })
-
-    st.dataframe(
-        info_dataset,
-        use_container_width=True
-    )
-
+    info_dataset = pd.DataFrame({"Variable": datos.columns, "Tipo": datos.dtypes.astype(str), "Valores nulos": datos.isnull().sum().values})
+    st.dataframe(info_dataset, use_container_width=True)
     st.divider()
+    
+    #Item 2
+    st.header("Item 2: Clasificación de variables")
+    col1, col2 = st.columns(2)
+    with col1:
+        st.subheader("🔢 Variables numéricas")
+        st.metric(
+            "Cantidad",
+            len(variables_numericas)
+        )
+        for variable in variables_numericas:
+            st.write(f"• {variable}")
+    with col2:
+        st.subheader("🔤 Variables categóricas")
+        st.metric(
+            "Cantidad",
+            len(variables_categoricas)
+        )
+        for variable in variables_categoricas:
+            st.write(f"• {variable}")
+    st.divider()
+
+
