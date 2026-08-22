@@ -35,6 +35,6 @@ else:
             st.write(f"**Filas:** {datos.shape[0]}")
             st.write(f"**Columnas:** {datos.shape[1]}")
         except Exception as error:
-            st.error(f"No fue posible leer el archivo: {error}")}
+            st.error(f"No fue posible leer el archivo: {error}")
     else:
         st.info("Cargue un archivo CSV o Excel para visualizar los datos.")
