@@ -60,7 +60,7 @@ elif modulo == "Módulo 2":
     st.write(f"**Columnas:** {datos.shape[1]}")
 
 elif modulo == "Módulo 3":
-    st.tittle("Analisis Exploratorio de Datos")
+    st.title("Analisis Exploratorio de Datos")
     if "datos" not in st.session_state:
         st.warning ("Primero debes cargar el dataset a trabajar")
         st.stop()
