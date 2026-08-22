@@ -65,8 +65,8 @@ elif modulo == "Módulo 3":
         st.warning ("Primero debes cargar el dataset a trabajar")
         st.stop()
     datos = st.session_state["datos"]
-    analisis = DataAnalyzer(datos)
-    variables_numericas, variables_categoricas = (analisis.clasificar_variables())
+    analyzer = DataAnalyzer(datos)
+    variables_numericas, variables_categoricas = (analyzer.clasificar_variables())
     
     #Item 1
     st.header("Item 1: Información general del dataset")
