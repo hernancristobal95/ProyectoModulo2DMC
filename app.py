@@ -69,4 +69,33 @@ elif modulo == "Módulo 3":
     variables_numericas, variables_categoricas = (analisis.clasificar_variables())
     
     #Item 1: Información general del dataset
-    datos.info()
+    st.header("Item 1: Información general del dataset")
+    st.metric("Filas:", datos.shape[0])
+    st.metric("Columnas", datos.shape[1])
+    st.subheader("Tipos de datos")
+
+    tipos_datos = pd.DataFrame({
+        "Variable": datos.columns,
+        "Tipo de dato": datos.dtypes.astype(str)
+    })
+
+    st.dataframe(
+        tipos_datos,
+        use_container_width=True
+    )
+
+    st.subheader("Información del dataset")
+
+    info_dataset = pd.DataFrame({
+        "Variable": datos.columns,
+        "Tipo": datos.dtypes.astype(str),
+        "Valores no nulos": datos.notnull().sum().values,
+        "Valores nulos": datos.isnull().sum().values
+    })
+
+    st.dataframe(
+        info_dataset,
+        use_container_width=True
+    )
+
+    st.divider()
