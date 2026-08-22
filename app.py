@@ -89,67 +89,6 @@ elif modulo == "Módulo 3":
     
     #Item 3
     st.header("Ítem 3: Estadísticas descriptivas")
-    st.dataframe(
-        analyzer.estadisticas_descriptivas(),
-        use_container_width=True)
-    if len(variables_numericas) > 0:
-
-        variable_estadistica = st.selectbox(
-            "Seleccione una variable numérica",
-            variables_numericas,
-            key="estadisticas"
-        )
-
-        media = datos[variable_estadistica].mean()
-        mediana = datos[variable_estadistica].median()
-        moda = analyzer.calcular_moda(variable_estadistica)
-        desviacion = datos[variable_estadistica].std()
-
-        col1, col2, col3, col4 = st.columns(4)
-
-        with col1:
-            st.metric(
-                "Media",
-                f"{media:.2f}"
-            )
-
-        with col2:
-            st.metric(
-                "Mediana",
-                f"{mediana:.2f}"
-            )
-
-        with col3:
-
-            if isinstance(
-                moda,
-                (int, float, np.number)
-            ):
-
-                st.metric(
-                    "Moda",
-                    f"{moda:.2f}"
-                )
-
-            else:
-
-                st.metric(
-                    "Moda",
-                    str(moda)
-                )
-
-        with col4:
-            st.metric(
-                "Desviación estándar",
-                f"{desviacion:.2f}"
-            )
-
-    st.info("""
-    **Interpretación:** la media representa el promedio de los
-    valores, mientras que la mediana representa el valor central.
-    La desviación estándar permite evaluar qué tan dispersos se
-    encuentran los datos respecto a su media.
-    """)
-
+    st.dataframe(analyzer.estadisticas_descriptivas(), use_container_width=True)
     st.divider()
 
