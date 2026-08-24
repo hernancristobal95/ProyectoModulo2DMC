@@ -93,7 +93,7 @@ elif modulo == "Módulo 3":
     st.divider()
 
     #Item 4
-    st.heder("Item 4: Analisis de valores faltantes")
+    st.header("Item 4: Analisis de valores faltantes")
     valores_nulos = analyzer.valores_nulos()
     valores_nulos = valores_nulos.sort_values(ascending=False)
     st.dataframe(valores_nulos.to_frame("Valores nulos"), use_container_width=True)
