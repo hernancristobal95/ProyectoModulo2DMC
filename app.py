@@ -66,7 +66,8 @@ elif modulo == "Módulo 3":
         st.stop()
     datos = st.session_state["datos"]
     analyzer = DataAnalyzer(datos)
-    variables_numericas, variables_categoricas = (analyzer.clasificar_variables())
+    variables_numericas, variables_categoricas = analyzer.clasificar_variables()
+    variables_categoricas.remove("customerID")
     
     #Item 1
     st.header("Item 1: Información general del dataset")
