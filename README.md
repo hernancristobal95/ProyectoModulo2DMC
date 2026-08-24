@@ -9,3 +9,8 @@ Realizar un Análisis Exploratorio de Datos sobre clientes de una empresa de tel
 <img width="1902" height="950" alt="image" src="https://github.com/user-attachments/assets/572d1684-db07-4370-b1a5-7f2e5474a19c" />
 <img width="1907" height="965" alt="image" src="https://github.com/user-attachments/assets/020c7f28-abc1-4b06-b9fb-faa199907ebd" />
 <img width="1915" height="907" alt="image" src="https://github.com/user-attachments/assets/b6e73c23-d57a-4b0f-b347-6fd613e9e53f" />
+
+### 3. Instrucciones de ejecución
+
+- Cargar el data set en el módulo 2 con formato csv antes de empezar cualquier analisis.
+- Luego ir al módulo 3 y escoger las variables en cada punto a analizar.
