@@ -109,5 +109,19 @@ elif modulo == "Módulo 3":
         plt.xticks(rotation=45)
         st.pyplot(fig)
     st.divider()
+    
+    #Item 5
+    st.header("Item 5: Distribución de variables numéricas")
+    if len(variables_numericas) > 0:
+        variable_hist = st.selectbox("Seleccione una variable numérica",variables_numericas)
+        fig, ax = plt.subplots(figsize=(9, 4))
+        sns.histplot(datos[variable_hist], kde=True, color="blue", ax=ax)
+        ax.set_title(f"Distribución de {variable_hist}")
+        ax.set_xlabel(variable_hist)
+        ax.set_ylabel("Frecuencia")
+        st.pyplot(fig)
+    st.divider()
 
 
+    
+    #Item 4
