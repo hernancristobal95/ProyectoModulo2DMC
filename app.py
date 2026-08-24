@@ -124,44 +124,44 @@ elif modulo == "Módulo 3":
     
     #Item 6
     st.header("Item 6: Análisis de variables categóricas")
-    variable = st.selectbox("Seleccione una variable", variables_categoricas)
-    conteo = datos[variable].value_counts()
+    variable1 = st.selectbox("Seleccione una variable", variables_categoricas)
+    conteo = datos[variable1].value_counts()
     st.dataframe(conteo)
     fig, ax = plt.subplots()
     conteo.plot(kind="bar", ax=ax)
-    ax.set_title(f"Distribución de {variable}")
+    ax.set_title(f"Distribución de {variable1}")
     st.pyplot(fig)
     st.divider()
 
     #Item 7
     st.header("Item 7: Análisis numérico vs Churn")
-    variable = st.selectbox("Seleccione variable numérica", ["tenure", "MonthlyCharges"])
-    st.dataframe(datos.groupby("Churn")[variable].agg(["mean", "median"]).round(2))
+    variable2 = st.selectbox("Seleccione variable numérica", ["tenure", "MonthlyCharges"])
+    st.dataframe(datos.groupby("Churn")[variable2].agg(["mean", "median"]).round(2))
     fig, ax = plt.subplots()
-    sns.boxplot(data=datos, x="Churn", y=variable, ax=ax)
-    ax.set_title(f"{variable} vs Churn")
+    sns.boxplot(data=datos, x="Churn", y=variable2, ax=ax)
+    ax.set_title(f"{variable2} vs Churn")
     st.pyplot(fig)
     st.divider()
 
     #Item 8
     st.header("Item 8: Análisis categórico vs Churn")
-    variable = st.selectbox("Seleccione variable categórica",["Contract", "InternetService"])
-    tasa = datos.groupby(variable)["Churn"].apply(lambda x: (x == "Yes").mean() * 100)
+    variable3 = st.selectbox("Seleccione variable categórica",["Contract", "InternetService"])
+    tasa = datos.groupby(variable3)["Churn"].apply(lambda x: (x == "Yes").mean() * 100)
     st.dataframe(tasa.round(2).to_frame("Churn %"))
     fig, ax = plt.subplots()
     tasa.plot(kind="bar", ax=ax)
-    ax.set_title(f"Churn según {variable}")
+    ax.set_title(f"Churn según {variable3}")
     st.pyplot(fig)
     st.divider()
 
     #Item 9
     st.header("Item 9: Análisis basado en parámetros")
-    variable = st.selectbox("Seleccione una variable", ["Contract", "InternetService", "TechSupport", "PaymentMethod"])
+    variable4 = st.selectbox("Seleccione una variable", ["Contract", "InternetService", "TechSupport", "PaymentMethod"])
     variables = st.multiselect("Seleccione variables adicionales", ["tenure", "MonthlyCharges"])
-    st.dataframe(datos.groupby(variable)["Churn"].apply(lambda x: (x == "Yes").mean() * 100).round(2).to_frame("Churn %"))
+    st.dataframe(datos.groupby(variable4)["Churn"].apply(lambda x: (x == "Yes").mean() * 100).round(2).to_frame("Churn %"))
     for v in variables:
         st.write(f"**{v}**")
-        st.write(datos.groupby(variable)[v].mean().round(2))
+        st.write(datos.groupby(variable4)[v].mean().round(2))
     st.divider()
 
     # Item 10
