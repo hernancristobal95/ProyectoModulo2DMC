@@ -154,3 +154,36 @@ elif modulo == "Módulo 3":
     st.pyplot(fig)
     st.divider()
 
+    #Item 9
+    st.header("Item 9: Análisis basado en parámetros")
+    variable = st.selectbox("Seleccione una variable", ["Contract", "InternetService", "TechSupport", "PaymentMethod"])
+    variables = st.multiselect("Seleccione variables adicionales", ["tenure", "MonthlyCharges"])
+    st.dataframe(datos.groupby(variable)["Churn"].apply(lambda x: (x == "Yes").mean() * 100).round(2).to_frame("Churn %"))
+    for v in variables:
+        st.write(f"**{v}**")
+        st.write(datos.groupby(variable)[v].mean().round(2))
+    st.divider()
+
+    # Item 10
+    st.header("Item 10: Hallazgos clave")
+    churn = (datos["Churn"] == "Yes").mean() * 100
+    col1, col2, col3 = st.columns(3)
+    col1.metric("Clientes", len(datos))
+    col2.metric("Churn", f"{churn:.1f}%")
+    col3.metric("Permanencia", f"{100-churn:.1f}%")
+    st.subheader("Principales segmentos con mayor Churn")
+    resumen = pd.Series({"Month-to-month":(datos[datos["Contract"] == "Month-to-month"]["Churn"] == "Yes").mean() * 100,
+        "Fiber optic":
+            (datos[datos["InternetService"] == "Fiber optic"]["Churn"] == "Yes").mean() * 100,
+        "Sin TechSupport":
+            (datos[datos["TechSupport"] == "No"]["Churn"] == "Yes").mean() * 100,
+        "Electronic check":
+            (datos[datos["PaymentMethod"] == "Electronic check"]["Churn"] == "Yes").mean() * 100
+    })
+    st.bar_chart(resumen)
+    st.write("**Insights principales:**")
+    st.write("• Month-to-month presenta una tasa alta de Churn.")
+    st.write("• Fiber optic presenta mayor Churn que DSL.")
+    st.write("• Los clientes sin TechSupport presentan mayor Churn.")
+    st.write("• Electronic check presenta una tasa elevada de Churn.")
+    st.divider()
