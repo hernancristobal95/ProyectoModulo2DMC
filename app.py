@@ -26,9 +26,9 @@ class DataAnalyzer:
         
 if modulo == "Módulo 1":
     st.title("Home")
-    st.title("Proyecto Módulo 2 Fundamentals")
+    st.title("Proyecto Módulo 2: Python Data Analytics")
     st.subheader("Breve descripción del objetivo del análisis:")
-    st.write("...")
+    st.write("Realizar un Análisis Exploratorio de Datos sobre clientes de una empresa de telecomunicaciones para identificar patrones relacionados con el abandono de clientes (Churn). Se utilizarán herramientas de Python y Streamlit para analizar y visualizar los principales resultados.")
     st.subheader("Nombre del alumno:")
     st.write("Hernan Martin Cristobal Ramos")
     st.subheader("Nombre del módulo:")
