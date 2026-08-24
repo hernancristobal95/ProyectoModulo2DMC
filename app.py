@@ -188,3 +188,11 @@ elif modulo == "Módulo 3":
     st.write("• Los clientes sin TechSupport presentan mayor Churn.")
     st.write("• Electronic check presenta una tasa elevada de Churn.")
     st.divider()
+
+    # Conclusiones finales
+    st.header("Conclusiones finales")
+    st.write("1. Los clientes con contrato Month-to-month presentan mayor abandono.")
+    st.write("2. Los clientes con menor antigüedad presentan mayor Churn.")
+    st.write("3. Fiber optic es un segmento que requiere mayor atención.")
+    st.write("4. TechSupport y el método de pago muestran diferencias importantes en Churn.")
+    st.write("5. Los resultados permiten identificar segmentos prioritarios para estrategias de retención.")
