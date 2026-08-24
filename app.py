@@ -88,7 +88,26 @@ elif modulo == "Módulo 3":
     st.divider()
     
     #Item 3
-    st.header("Ítem 3: Estadísticas descriptivas")
+    st.header("Item 3: Estadísticas descriptivas")
     st.dataframe(analyzer.estadisticas_descriptivas(), use_container_width=True)
     st.divider()
+
+    #Item 4
+    st.heder("Item 4: Analisis de valores faltantes")
+    valores_nulos = analyzer.valores_nulos()
+    valores_nulos = valores_nulos.sort_values(ascending=False)
+    st.dataframe(valores_nulos.to_frame("Valores nulos"), use_container_width=True)
+    nulos_grafico = valores_nulos[valores_nulos > 0]
+    if len(nulos_grafico) == 0:
+        st.success("No existen valores faltantes")
+    else:
+        fig, ax = plt.subplots(figsize=(10, 4))
+        nulos_grafico.plot(kind="bar",color="red",ax=ax)
+        ax.set_title("Cantidad de valores faltantes por variable")
+        ax.set_xlabel("Variable")
+        ax.set_ylabel("Cantidad")
+        plt.xticks(rotation=45)
+        st.pyplot(fig)
+    st.divider()
+
 
